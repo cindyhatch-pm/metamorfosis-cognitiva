@@ -1,0 +1,404 @@
+<title>Two Languages Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --paper:   #f4f1ec;
+    --surface: #fffdf9;
+    --surface-2: #efe9e1;
+    --ink:     #241f2b;
+    --muted:   #6a6272;
+    --faint:   #9a91a0;
+    --line:    #e3dbd2;
+    --theory:  #6d5bd0;   /* YOUR language — the Lexicon */
+    --theory-ink: #4b3ca8;
+    --theory-wash: #eae6fb;
+    --buyer:   #c85f2c;   /* THEIR language — the buyer */
+    --buyer-ink: #a94d1f;
+    --buyer-wash: #f7e7db;
+    --gold:    #b6892f;
+    --shadow:  0 1px 2px rgba(36,31,43,.05), 0 8px 30px rgba(36,31,43,.06);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --paper:   #15121b;
+      --surface: #1e1927;
+      --surface-2: #262032;
+      --ink:     #efe9f2;
+      --muted:   #a99fb4;
+      --faint:   #756c80;
+      --line:    #2f2839;
+      --theory:  #a493f4;
+      --theory-ink: #c3b6ff;
+      --theory-wash: #241d3c;
+      --buyer:   #e8895180;
+      --buyer:   #eb8b52;
+      --buyer-ink: #f2a877;
+      --buyer-wash: #33231a;
+      --gold:    #d7ad57;
+      --shadow:  0 1px 2px rgba(0,0,0,.3), 0 10px 34px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:   #15121b;
+    --surface: #1e1927;
+    --surface-2: #262032;
+    --ink:     #efe9f2;
+    --muted:   #a99fb4;
+    --faint:   #756c80;
+    --line:    #2f2839;
+    --theory:  #a493f4;
+    --theory-ink: #c3b6ff;
+    --theory-wash: #241d3c;
+    --buyer:   #eb8b52;
+    --buyer-ink: #f2a877;
+    --buyer-wash: #33231a;
+    --gold:    #d7ad57;
+    --shadow:  0 1px 2px rgba(0,0,0,.3), 0 10px 34px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 0 22px; }
+  section { padding: 46px 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; }
+
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; text-wrap: balance; margin: 0; line-height: 1.08; }
+  h2 { font-size: clamp(26px, 4.4vw, 38px); font-weight: 600; letter-spacing: -0.01em; }
+  h3 { font-size: 20px; font-weight: 600; }
+  p { margin: 0; }
+  a { color: var(--theory-ink); }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--faint); margin-bottom: 14px; display: block;
+  }
+  .lede { color: var(--muted); font-size: 17px; max-width: 62ch; }
+  .stack { display: flex; flex-direction: column; gap: 16px; }
+
+  /* ── Hero ── */
+  .hero { padding: 60px 0 44px; }
+  .hero h1 {
+    font-size: clamp(38px, 8vw, 74px); font-weight: 900; letter-spacing: -0.025em;
+    margin-bottom: 20px;
+  }
+  .hero .yo { color: var(--theory); font-style: italic; }
+  .hero .su { color: var(--buyer); font-style: italic; }
+  .hero .lede { font-size: clamp(17px, 2.4vw, 20px); max-width: 60ch; }
+  .brandline {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--faint); margin-bottom: 26px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .brandline .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--buyer); }
+
+  /* ── Proof card ── */
+  .proof {
+    margin-top: 34px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px 24px; box-shadow: var(--shadow);
+    display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center;
+  }
+  .proof .big {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: 46px; line-height: 1;
+    color: var(--buyer); font-variant-numeric: tabular-nums;
+  }
+  .proof .big small { display: block; font-size: 12px; font-family: "IBM Plex Mono", monospace;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-weight: 400; margin-top: 8px; }
+  .proof p { font-size: 15px; color: var(--muted); }
+  .proof strong { color: var(--ink); font-weight: 600; }
+
+  /* ── Pillars ── */
+  .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
+  .pillar {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 22px; box-shadow: var(--shadow); position: relative; overflow: hidden;
+  }
+  .pillar::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--accent, var(--theory)); }
+  .pillar.theory { --accent: var(--theory); }
+  .pillar.buyer  { --accent: var(--buyer); }
+  .pillar.proof2 { --accent: var(--gold); }
+  .pillar.human  { --accent: var(--faint); }
+  .pillar .tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent, var(--theory)); font-weight: 500;
+  }
+  .pillar h3 { margin: 8px 0 4px; }
+  .pillar .es { font-family: "Fraunces", serif; font-style: italic; color: var(--muted); font-size: 15px; }
+  .pillar p { font-size: 14.5px; color: var(--muted); margin-top: 10px; }
+  .pillar .who { margin-top: 14px; font-size: 12.5px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; padding: 3px 9px; border-radius: 20px;
+    background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); white-space: nowrap;
+  }
+  .chip.freq { background: transparent; border-color: var(--accent, var(--theory)); color: var(--accent, var(--theory)); }
+
+  /* ── Translation engine ── */
+  .engine-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .legend { display: flex; gap: 16px; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+  .rows { margin-top: 26px; display: flex; flex-direction: column; gap: 14px; }
+  .row {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: var(--shadow); overflow: hidden;
+    display: grid; grid-template-columns: 1fr 1fr;
+  }
+  .cell { padding: 18px 20px; }
+  .cell.you  { background: var(--theory-wash); }
+  .cell.them { border-left: 1px solid var(--line); }
+  .cell .lab {
+    font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 8px; display: block;
+  }
+  .cell.you .lab { color: var(--theory-ink); }
+  .cell.them .lab { color: var(--buyer-ink); }
+  .cell .concept { font-family: "Fraunces", serif; font-weight: 600; font-size: 17px; color: var(--ink); }
+  .cell .pain { font-size: 14.5px; color: var(--muted); font-style: italic; }
+  .hook {
+    grid-column: 1 / -1; border-top: 1px dashed var(--line);
+    padding: 14px 20px; display: flex; gap: 12px; align-items: flex-start;
+    background: linear-gradient(90deg, transparent, var(--buyer-wash) 140%);
+  }
+  .hook .arrow { color: var(--buyer); font-weight: 600; font-family: "Fraunces", serif; flex-shrink: 0; }
+  .hook .text { font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--ink); line-height: 1.5; }
+
+  /* ── Intent segments ── */
+  .segs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; }
+  .seg { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow); }
+  .seg h3 { font-size: 17px; }
+  .seg .fear { color: var(--muted); font-size: 14px; margin-top: 8px; }
+  .seg .fear b { color: var(--buyer-ink); font-weight: 600; }
+  .seg .words { margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
+
+  /* ── Funnel (a real sequence → numbered) ── */
+  .funnel { margin-top: 28px; display: flex; flex-direction: column; gap: 2px; }
+  .step { display: grid; grid-template-columns: 46px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  .step:last-child { border-bottom: none; }
+  .step .n {
+    font-family: "Fraunces", serif; font-weight: 900; font-size: 26px; color: var(--theory);
+    font-variant-numeric: tabular-nums; line-height: 1;
+  }
+  .step h3 { font-size: 17px; }
+  .step p { color: var(--muted); font-size: 14.5px; margin-top: 4px; }
+  .step .say { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--buyer-ink); margin-top: 6px; display: block; }
+
+  /* ── Calendar ── */
+  .cal { margin-top: 26px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+  .cal .r { display: grid; grid-template-columns: 62px 92px 1fr; gap: 0; border-top: 1px solid var(--line); background: var(--surface); }
+  .cal .r:first-child { border-top: none; background: var(--surface-2); }
+  .cal .r > div { padding: 11px 14px; font-size: 14px; }
+  .cal .r:first-child > div { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
+  .cal .day { font-family: "IBM Plex Mono", monospace; color: var(--faint); font-size: 13px; }
+  .cal .pill-tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; }
+  .cal .t-theory { color: var(--theory); }
+  .cal .t-buyer  { color: var(--buyer); }
+  .cal .t-proof  { color: var(--gold); }
+  .cal .t-human  { color: var(--muted); }
+  .cal .idea { color: var(--ink); }
+
+  .note {
+    margin-top: 26px; background: var(--theory-wash); border: 1px solid var(--line);
+    border-radius: 12px; padding: 18px 20px; font-size: 14.5px; color: var(--ink);
+  }
+  .note b { font-weight: 600; }
+  .kicker { font-family: "Fraunces", serif; font-style: italic; color: var(--muted); }
+
+  footer { padding: 40px 0 60px; color: var(--faint); font-size: 13px; font-family: "IBM Plex Mono", monospace; }
+
+  @media (max-width: 680px) {
+    .pillars, .segs { grid-template-columns: 1fr; }
+    .proof { grid-template-columns: 1fr; text-align: left; }
+    .row { grid-template-columns: 1fr; }
+    .cell.them { border-left: none; border-top: 1px solid var(--line); }
+    .cal .r { grid-template-columns: 52px 80px 1fr; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .row, .pillar, .seg { transition: transform .18s ease, box-shadow .18s ease; }
+    .row:hover, .pillar:hover { transform: translateY(-2px); }
+  }
+</style>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="brandline">Metamorfosis Cognitiva <span class="dot"></span> Content strategy <span class="dot"></span> Cindy Hatch</div>
+    <h1>You speak <span class="yo">your language</span>.<br>They buy in <span class="su">theirs</span>.</h1>
+    <p class="lede">Your glossary earns respect from peers. But the people with budget — founders, heads of product and marketing at AI companies — don't buy theory. They buy relief from a pain they can name. This playbook keeps both: authority <em>and</em> demand, on the same feed.</p>
+
+    <div class="proof">
+      <div class="big">1<small>lead · 2 posts</small></div>
+      <p>The CapCut / ByteDance recruiter didn't find you through a job board — <strong>two TikToks pulled them in.</strong> That's the whole thesis: content is your cheapest client-acquisition channel. This is how you point it, on purpose, at the people who can invest.</p>
+    </div>
+  </header>
+
+  <!-- PILLARS -->
+  <section>
+    <span class="eyebrow">The system · 4 pillars</span>
+    <h2>Four pillars, two audiences</h2>
+    <p class="lede">Each pillar has a job and an audience. Two speak to peers and build authority; two speak to buyers and create inbound. Balance the feed — don't let it drift all-theory (no leads) or all-pitch (no trust).</p>
+
+    <div class="pillars">
+      <div class="pillar theory">
+        <span class="tag">Your language · authority</span>
+        <h3>The Lexicon</h3>
+        <span class="es">El Léxico</span>
+        <p>Your theory, one concept at a time — cognitive metamorphosis, how organizations actually change around AI. Differentiates you. Nobody else owns this vocabulary.</p>
+        <div class="who"><span class="chip">Peers &amp; the curious</span><span class="chip freq">~1× / week</span></div>
+      </div>
+      <div class="pillar buyer">
+        <span class="tag">Their language · intent</span>
+        <h3>Their Language</h3>
+        <span class="es">Su Idioma</span>
+        <p>Your same expertise, rewritten in the exact words a decision-maker uses about a pain they already feel. This is the new pillar — the one that reaches the wallet. Pain first, jargon never.</p>
+        <div class="who"><span class="chip">Founders · product · marketing</span><span class="chip freq">~2× / week</span></div>
+      </div>
+      <div class="pillar proof2">
+        <span class="tag">Proof · inbound</span>
+        <h3>In the Arena</h3>
+        <span class="es">En la Arena</span>
+        <p>Teardowns and live fixes — like the Loom you sent Meaningful. Audit a real AI feature, react to a launch, show the before/after. Competence you can watch beats competence you claim.</p>
+        <div class="who"><span class="chip">Buyers + peers</span><span class="chip freq">~1× / week</span></div>
+      </div>
+      <div class="pillar human">
+        <span class="tag">Trust · conversion</span>
+        <h3>The Human</h3>
+        <span class="es">La Metamorfosis</span>
+        <p>You: bilingual, LATAM, the pivot, the life you're designing. This is what turns a viewer into a DM. People hire people they feel they know — this pillar does the knowing.</p>
+        <div class="who"><span class="chip">Everyone</span><span class="chip freq">~1× / week</span></div>
+      </div>
+    </div>
+    <div class="note"><b>The bridge move:</b> end a Lexicon post in their language. <span class="kicker">“That's cognitive metamorphosis — or, in your words, why your AI rollout stalled after the demo.”</span> One post, both audiences, and it teaches your vocabulary <em>through</em> their pain.</div>
+  </section>
+
+  <!-- TRANSLATION ENGINE -->
+  <section>
+    <div class="engine-head">
+      <div>
+        <span class="eyebrow">The centerpiece</span>
+        <h2>The Translation Engine</h2>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--theory)"></i>Your concept</span>
+        <span><i style="background:var(--buyer)"></i>Their pain → the hook</span>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:14px">Every service you sell already exists as a concept in your head. This turns each one into the sentence that stops a decision-maker's thumb. Left is what you know. Right is what they feel. The mono line is the post's first two seconds.</p>
+
+    <div class="rows">
+
+      <div class="row">
+        <div class="cell you"><span class="lab">You call it</span><div class="concept">Cognitive metamorphosis</div></div>
+        <div class="cell them"><span class="lab">They feel</span><div class="pain">“My team uses AI all day but the output feels generic and off-brand.”</div></div>
+        <div class="hook"><span class="arrow">↳ hook</span><span class="text">“Your company's AI writes like a stranger wandered in off the street. Here's the 5-minute fix.”</span></div>
+      </div>
+
+      <div class="row">
+        <div class="cell you"><span class="lab">You call it</span><div class="concept">AEO / GEO — answer-engine visibility</div></div>
+        <div class="cell them"><span class="lab">They feel</span><div class="pain">“When a customer asks ChatGPT about us, it says nothing — or something wrong.”</div></div>
+        <div class="hook"><span class="arrow">↳ hook</span><span class="text">“Ask ChatGPT about your business right now. I'll wait. 😬 If it's wrong, that's costing you.”</span></div>
+      </div>
+
+      <div class="row">
+        <div class="cell you"><span class="lab">You call it</span><div class="concept">Content governance &amp; guardrails</div></div>
+        <div class="cell them"><span class="lab">They feel</span><div class="pain">“Our chatbot said something it absolutely should not have said.”</div></div>
+        <div class="hook"><span class="arrow">↳ hook</span><span class="text">“3 sentences your AI should never say to a customer — and how to make sure it can't.”</span></div>
+      </div>
+
+      <div class="row">
+        <div class="cell you"><span class="lab">You call it</span><div class="concept">AI-readiness · IA, taxonomy, metadata</div></div>
+        <div class="cell them"><span class="lab">They feel</span><div class="pain">“AI tools keep giving wrong answers about our own product.”</div></div>
+        <div class="hook"><span class="arrow">↳ hook</span><span class="text">“AI keeps lying about your product. It's not the AI — it's your content. (Said with love.)”</span></div>
+      </div>
+
+      <div class="row">
+        <div class="cell you"><span class="lab">You call it</span><div class="concept">Conversation design</div></div>
+        <div class="cell them"><span class="lab">They feel</span><div class="pain">“People rage-quit our support bot and email us angry instead.”</div></div>
+        <div class="hook"><span class="arrow">↳ hook</span><span class="text">“Your support bot is quietly losing you customers. Watch me fix a real one in 60 seconds.”</span></div>
+      </div>
+
+      <div class="row">
+        <div class="cell you"><span class="lab">You call it</span><div class="concept">Bilingual AI content · your rare edge</div></div>
+        <div class="cell them"><span class="lab">They feel</span><div class="pain">“We're expanding to LATAM and our Spanish AI copy sounds translated.”</div></div>
+        <div class="hook"><span class="arrow">↳ hook</span><span class="text">“Tu copy en español suena traducido… porque lo es. Esta es la diferencia. 🧵”</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTENT BY SEGMENT -->
+  <section>
+    <span class="eyebrow">Aim · from your prospect list</span>
+    <h2>Who's on the other side of the screen</h2>
+    <p class="lede">The same segments from your prospecting board watch TikTok. Each fears a different thing and uses different words. Match the hook to the fear.</p>
+
+    <div class="segs">
+      <div class="seg">
+        <h3>Fintech &amp; regulated</h3>
+        <p class="fear">Fear: <b>brand &amp; compliance risk</b> — an AI that says the wrong thing about money is a headline.</p>
+        <div class="words"><span class="chip">trust</span><span class="chip">compliance</span><span class="chip">risk</span><span class="chip">brand-safe</span></div>
+      </div>
+      <div class="seg">
+        <h3>AI-native product teams</h3>
+        <p class="fear">Fear: <b>users hate the bot</b> — churn, bad reviews, an assistant that's off-voice.</p>
+        <div class="words"><span class="chip">retention</span><span class="chip">UX</span><span class="chip">voice</span><span class="chip">activation</span></div>
+      </div>
+      <div class="seg">
+        <h3>LATAM / Spain expansion</h3>
+        <p class="fear">Fear: <b>the localization miss</b> — sounding foreign in a market you're betting on. Post these in Spanish.</p>
+        <div class="words"><span class="chip">localización</span><span class="chip">cultural fit</span><span class="chip">nativo</span></div>
+      </div>
+      <div class="seg">
+        <h3>Growth &amp; marketing leaders</h3>
+        <p class="fear">Fear: <b>invisibility in AI search</b> — competitors get cited by ChatGPT, they don't.</p>
+        <div class="words"><span class="chip">GEO</span><span class="chip">visibility</span><span class="chip">traffic</span><span class="chip">discovery</span></div>
+      </div>
+    </div>
+    <div class="note"><b>The scale move:</b> make a post about <em>a specific target company's</em> public AI feature — audit it kindly on camera. That's warm outreach to your whole prospect list at once, and it gives you a reason to DM them: <span class="kicker">“made something about your assistant — no strings, thought you'd want it.”</span></div>
+  </section>
+
+  <!-- FUNNEL -->
+  <section>
+    <span class="eyebrow">The path · hook to call</span>
+    <h2>From a two-second hook to a discovery call</h2>
+    <div class="funnel">
+      <div class="step"><div class="n">1</div><div><h3>Hook — first 2 seconds</h3><p>A pattern-interrupt in <em>their</em> language, straight from the Translation Engine. No intro, no logo, no “hey guys.”</p></div></div>
+      <div class="step"><div class="n">2</div><div><h3>Value — 15–40 seconds</h3><p>One concrete insight or a live fix. Teach, don't pitch. The proof <em>is</em> the pitch.</p></div></div>
+      <div class="step"><div class="n">3</div><div><h3>Soft CTA</h3><p>Give the algorithm a comment and give yourself a signal.<span class="say">“Comment AUDIT and I'll show you how to check yours.” / “Follow for the whole system.”</span></p></div></div>
+      <div class="step"><div class="n">4</div><div><h3>Profile — the one-liner that converts</h3><p>Not “content strategist.” A promise.<span class="say">“I help AI &amp; fintech teams make their AI sound human — and get found by AI search.”</span></p></div></div>
+      <div class="step"><div class="n">5</div><div><h3>Lead magnet</h3><p>A free “Is your brand visible to AI?” self-check. Low-friction, high-signal — everyone who runs it is a warm lead. (Worth building next — it's a natural companion to your prospecting tool.)</p></div></div>
+      <div class="step"><div class="n">6</div><div><h3>DM → discovery → engagement</h3><p>The DM is already warm because they came to you. Discovery call, scoped proposal, and it flows straight into the Prospecting Command Center you already have.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section>
+    <span class="eyebrow">Start here · week one</span>
+    <h2>Your first five posts</h2>
+    <p class="lede">A balanced week: buyer-language leads, theory earns depth, proof builds trust, human opens the DM. Reuse this rhythm every week; swap in fresh hooks from the Engine.</p>
+
+    <div class="cal">
+      <div class="r"><div>Day</div><div>Pillar</div><div>The post</div></div>
+      <div class="r"><div class="day">Mon</div><div class="pill-tag t-buyer">Their Lang.</div><div class="idea">“Ask ChatGPT about your business. I'll wait.” — the GEO gut-punch, with a 20-sec how-to-check.</div></div>
+      <div class="r"><div class="day">Tue</div><div class="pill-tag t-theory">Lexicon</div><div class="idea">Define one concept — “cognitive metamorphosis” — and land it with a real company example.</div></div>
+      <div class="r"><div class="day">Thu</div><div class="pill-tag t-proof">In the Arena</div><div class="idea">Audit one real AI assistant on camera. Kind, specific, useful. End: “want me to do yours?”</div></div>
+      <div class="r"><div class="day">Fri</div><div class="pill-tag t-buyer">Their Lang.</div><div class="idea">“3 sentences your AI should never say to a customer.” Guardrails, in their words.</div></div>
+      <div class="r"><div class="day">Sun</div><div class="pill-tag t-human">The Human</div><div class="idea">Why you left the job hunt to build this — bilingual, honest, the metamorphosis in real time.</div></div>
+    </div>
+
+    <div class="note"><b>Measure the right thing.</b> Views are vanity. The buyer signals are <b>saves, shares, profile visits, and DMs</b> — track which <em>pillar and hook</em> drives those, and make more of what converts, not what trends. A post with 800 views and 3 DMs beats one with 40k views and none.</div>
+  </section>
+
+  <footer>
+    Metamorfosis Cognitiva — Two Languages content pillar · drafted with Claude · v1
+  </footer>
+
+</div>
