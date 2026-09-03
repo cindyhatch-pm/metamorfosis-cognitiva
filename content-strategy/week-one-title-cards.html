@@ -1,0 +1,144 @@
+<title>Semana Uno · Title Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --surface:#f4dcef; --paper:#fbeef6; --ink:#6e2e32; --ink-soft:#8a5559;
+    --accent:#a80112; --rose:#c2607a; --tech:#1f5057; --cream:#f4dcef;
+    --tech-2:#a7d8dd; --line:#e7c6dd;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--surface);color:var(--ink);
+    font-family:"IBM Plex Mono",ui-monospace,monospace;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px;}
+
+  header{padding:54px 0 26px;}
+  .kick{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);margin-bottom:18px;}
+  h1{font-family:"Playfair Display",Georgia,serif;font-weight:900;font-size:clamp(32px,6vw,52px);
+    line-height:1.05;letter-spacing:-.01em;margin:0 0 14px;color:var(--ink);}
+  .stand{font-family:"IBM Plex Mono",monospace;font-size:14px;line-height:1.7;color:var(--ink-soft);max-width:64ch;}
+  .stand b{color:var(--ink);}
+
+  h2{font-family:"Playfair Display",serif;font-weight:700;font-size:26px;color:var(--ink);margin:0 0 4px;}
+  section{padding:34px 0;border-top:1px solid var(--line);}
+  .sub{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:22px;}
+
+  /* Card grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px;}
+  .card{aspect-ratio:9/16;border-radius:16px;overflow:hidden;position:relative;
+    display:flex;flex-direction:column;justify-content:space-between;padding:28px 24px;
+    box-shadow:0 12px 34px rgba(110,46,50,.16);}
+  .card.machine{background:var(--tech);color:var(--cream);}
+  .card.mind{background:var(--surface);color:var(--ink);border:1px solid var(--rose);}
+  .card .top{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;}
+  .card.machine .top{color:var(--tech-2);}
+  .card.mind .top{color:var(--accent);}
+  .card .mid{display:flex;flex-direction:column;gap:14px;}
+  .card .name{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(24px,3.2vw,30px);
+    line-height:1.08;text-wrap:balance;}
+  .card .rule{width:44px;height:2px;}
+  .card.machine .rule{background:var(--rose);}
+  .card.mind .rule{background:var(--accent);}
+  .card .foot{font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;}
+  .card .tl{font-family:"Playfair Display",serif;font-style:italic;font-size:13px;opacity:.85;}
+
+  .howto{margin-top:22px;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+    padding:15px 18px;font-size:13px;line-height:1.7;color:var(--ink);}
+  .howto b{color:var(--accent);}
+
+  /* Calendar */
+  .cal{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper);}
+  .cal .row{display:grid;grid-template-columns:120px 96px 1fr 92px;border-top:1px solid var(--line);}
+  .cal .row:first-child{border-top:none;background:#f0d3e6;}
+  .cal .row>div{padding:12px 14px;font-size:13px;line-height:1.5;}
+  .cal .row:first-child>div{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);}
+  .cal .date{color:var(--tech);font-weight:500;}
+  .cal .rec{background:var(--tech);color:var(--cream);}
+  .cal .rec .date{color:var(--tech-2);}
+  .cal .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+  .cal .t-m{color:var(--tech);}
+  .cal .t-c{color:var(--accent);}
+  .cal .idea{font-family:"Playfair Display",serif;font-size:15px;color:var(--ink);}
+  .cal .off{background:#f0d3e6;color:var(--ink-soft);font-style:italic;}
+  .cal .off .idea{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);}
+
+  .rules{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;}
+  .pill{font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:20px;
+    background:var(--paper);border:1px solid var(--line);color:var(--ink-soft);}
+
+  footer{padding:30px 0 60px;font-size:12px;color:var(--ink-soft);}
+
+  @media(max-width:560px){
+    .cal .row{grid-template-columns:96px 1fr;}
+    .cal .row>div:nth-child(3){grid-column:1/-1;border-top:1px dashed var(--line);}
+    .cal .row>div:nth-child(4){display:none;}
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="kick">Metamorfosis Cognitiva / Semana uno / Production pack</div>
+    <h1>Title cards &amp; the shooting calendar.</h1>
+    <p class="stand">The 0:00 frames for your five scripts, plus when to record and post them. Four <b>machine-side</b> concepts carry the cool technical ink; the one <b>cognitive</b> concept stays on the brand ground — so the week reads as four machine, one mind.</p>
+  </header>
+
+  <section>
+    <div class="sub">The five 0:00 frames</div>
+    <div class="grid">
+      <div class="card machine">
+        <div class="top">Twin T-04 · Machine side</div>
+        <div class="mid"><div class="name">Fluency Is Not Accuracy</div><div class="rule"></div></div>
+        <div class="foot">Metamorfosis Cognitiva</div>
+      </div>
+      <div class="card machine">
+        <div class="top">Twin T-03 · Machine side</div>
+        <div class="mid"><div class="name">The Jagged Frontier</div><div class="rule"></div></div>
+        <div class="foot">Metamorfosis Cognitiva</div>
+      </div>
+      <div class="card machine">
+        <div class="top">Twin T-12 · Machine side</div>
+        <div class="mid"><div class="name">Trained to Please</div><div class="rule"></div></div>
+        <div class="foot">Metamorfosis Cognitiva</div>
+      </div>
+      <div class="card machine">
+        <div class="top">Twin T-05 · Machine side</div>
+        <div class="mid"><div class="name">Next-Token Prediction</div><div class="rule"></div></div>
+        <div class="foot">Metamorfosis Cognitiva</div>
+      </div>
+      <div class="card mind">
+        <div class="top">Concept 04 · Cognitive side</div>
+        <div class="mid"><div class="name">The Illusion of Competence</div><div class="rule"></div></div>
+        <div class="foot">Metamorfosis Cognitiva</div>
+      </div>
+    </div>
+    <div class="howto">Ready-to-use PNG frames (1080×1920) are attached with this pack. <b>Hold each on screen 0:00–0:02</b>, then cut to you speaking. Same setting, light and clothing across all five — that's what makes it a series.</div>
+  </section>
+
+  <section>
+    <div class="sub">The calendar — record once, post across three weeks</div>
+    <h2 style="margin-bottom:18px">Batch the record, space the posts</h2>
+    <div class="cal">
+      <div class="row"><div>Date</div><div>Do</div><div>Post</div><div>Layer</div></div>
+      <div class="row rec"><div class="date">Mon Sep 8 · AM</div><div>Record</div><div class="idea" style="color:var(--cream)">Batch all five in one 60–90 min morning block — one light, one outfit.</div><div class="tag" style="color:var(--tech-2)">all</div></div>
+      <div class="row"><div class="date">Wed Sep 10</div><div>Post 1</div><div class="idea">Fluency Is Not Accuracy</div><div class="tag t-m">machine</div></div>
+      <div class="row"><div class="date">Fri Sep 12</div><div>Post 2</div><div class="idea">The Jagged Frontier <span style="font-family:'IBM Plex Mono';font-size:11px;color:var(--ink-soft)">· has the BCG numbers</span></div><div class="tag t-m">machine</div></div>
+      <div class="row off"><div class="date">Sep 15–16</div><div>—</div><div class="idea">Independencia — dark, no posts.</div><div class="tag">off</div></div>
+      <div class="row"><div class="date">Wed Sep 17</div><div>Post 3</div><div class="idea">Trained to Please</div><div class="tag t-m">machine</div></div>
+      <div class="row"><div class="date">Fri Sep 19</div><div>Post 4</div><div class="idea">Next-Token Prediction</div><div class="tag t-m">machine</div></div>
+      <div class="row"><div class="date">Mon Sep 22</div><div>Post 5</div><div class="idea">The Illusion of Competence <span style="font-family:'IBM Plex Mono';font-size:11px;color:var(--ink-soft)">· closes back to #1</span></div><div class="tag t-c">cognitive</div></div>
+    </div>
+    <div class="rules">
+      <span class="pill">Record mornings only</span>
+      <span class="pill">Batch 60–90 min</span>
+      <span class="pill">Skip Sep 15–16</span>
+      <span class="pill">Wed / Fri rhythm</span>
+      <span class="pill">Captions on · EN + ES</span>
+      <span class="pill">No CTA</span>
+    </div>
+    <div class="howto" style="margin-top:22px">Order isn't arbitrary: open on the broadest hook (Fluency), drop the number-heavy one while attention is high (Jagged Frontier), and close on the cognitive concept that pairs back to the opener — so the arc rewards anyone who watched the whole week.</div>
+  </section>
+
+  <footer>Metamorfosis Cognitiva — week one production pack · drafted with Claude.</footer>
+</div>
