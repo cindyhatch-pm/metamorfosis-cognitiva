@@ -68,6 +68,20 @@ const SERVICES = [
     buyers: ["Head of Content", "Head of Knowledge", "Principal IA", "VP Product"],
     band: "$10k–25k engagement",
   },
+  {
+    key: "servicenow",
+    name: "ServiceNow Content Governance & Knowledge Advisory",
+    blurb: "Embedded authoring standards, knowledge-base / catalog / CMDB structure, taxonomy and governance for regulated ServiceNow implementations. Your USAA-via-TCS work, resold — to the SIs who staff it or the enterprises who run it.",
+    buyers: ["ServiceNow Practice Lead", "Knowledge Manager", "Delivery / Resource Manager", "Head of Platform"],
+    band: "$120–200/hr contract · via SI or direct",
+  },
+  {
+    key: "ai-training",
+    name: "AI-Enablement Enterprise Training",
+    blurb: "Your four-module program teaching Finance / HR / PM teams to direct and adjudicate AI output without ceding judgment. Bilingual, built on adult-learning theory. Sold per cohort to L&D and transformation teams.",
+    buyers: ["Head of L&D", "Head of Transformation", "Head of Operations", "Chief People Officer"],
+    band: "$8k–30k per cohort",
+  },
 ];
 
 // ─── Ideal Customer Profile — the filter Clay searches are built from ──────────
@@ -275,6 +289,56 @@ const SEED_PROSPECTS = [
     nextDate: "2026-09-09", nextAction: "Clay-enrich. Likely better as a 'help Fin's customers' partner play than direct-to-Intercom.",
     notes: "Where a platform sells AI to non-experts, there's always a content-services layer the vendor won't staff. That layer is your business.",
     stageHistory: [{stage:"Lead",date:"2026-08-30"}], flagged: false,
+  },
+  // ── SERVICENOW ECOSYSTEM (from the CV — warmest, most credible vector) ─────
+  {
+    id: "sn-tcs", company: "TCS (Tata Consultancy Services)", domain: "tcs.com",
+    industry: "IT services / ServiceNow SI", size: "10,000+", location: "Global / MX / US",
+    source: "Referral", service: "servicenow", icpScore: 95,
+    dealBand: "$120–200/hr contract",
+    signal: "YOU ALREADY DELIVERED THROUGH THEM — the USAA ServiceNow content-governance work on your CV was via TCS. That's a warm, dormant relationship. SIs constantly need KM/content-governance specialists on the bench. Warmest lead in the whole pipeline.",
+    stage: "Nurture", buyerName: "", buyerTitle: "ServiceNow Practice / Resource Lead",
+    buyerLinkedIn: "", buyerEmail: "", clayEnriched: false, dateAdded: "2026-09-25",
+    nextDate: "2026-09-29", nextAction: "Reconnect with your USAA-engagement contacts at TCS. Clay-find the ServiceNow practice / resourcing lead. Angle: 'available for ServiceNow content-governance & KM engagements.'",
+    notes: "Warm re-engagement, not cold outreach. You have proof of Fortune-500 delivery through them. Ask your old engagement manager who staffs ServiceNow KM/content work now.",
+    stageHistory: [{stage:"Nurture",date:"2026-09-25"}], flagged: true,
+  },
+  {
+    id: "sn-glidefast", company: "GlideFast Consulting", domain: "glidefast.com",
+    industry: "ServiceNow Elite Partner (pure-play)", size: "201–500", location: "US / Remote",
+    source: "Cold outreach", service: "servicenow", icpScore: 90,
+    dealBand: "$120–200/hr contract",
+    signal: "Pure-play ServiceNow implementation partner. Every engagement needs knowledge-base + catalog content structured well — a gap generalist consultants don't fill. Your embedded-authoring-standards work is a rare, sellable specialty here.",
+    stage: "Enriched", buyerName: "Syed Hassan", buyerTitle: "Service Delivery Director",
+    buyerLinkedIn: "https://www.linkedin.com/in/syed-hassan-630205a2/", buyerEmail: "", clayEnriched: true, dateAdded: "2026-09-25",
+    nextDate: "2026-09-30", nextAction: "Message Syed Hassan (Service Delivery Director) — the person who'd bring a content-governance specialist onto engagements. Alt door: Andrena Lombardo Silva (Dir. Talent Acquisition) for bench/contract. Pitch fractional ServiceNow KB/catalog content support.",
+    notes: "REAL CLAY DATA (Sep 25). Elite ServiceNow Partner, 588 employees, $75–200M revenue, Waltham MA; now part of Everforth (NYSE: EFOR). Buyers: Syed Hassan (Service Delivery Director — best), Andrena Lombardo Silva (Dir. Talent Acquisition — staffs contractors), Michael Lombardo (Founder/CEO). Pure-play SIs are the best subcontract partners — one relationship = recurring project flow.",
+    stageHistory: [{stage:"Lead",date:"2026-09-25"},{stage:"Enriched",date:"2026-09-25"}], flagged: true,
+  },
+  {
+    id: "sn-thirdera", company: "Thirdera (a Cognizant company)", domain: "thirdera.com",
+    industry: "ServiceNow Elite Partner (largest pure-play)", size: "1,001–5,000", location: "Global / US / LATAM",
+    source: "Cold outreach", service: "servicenow", icpScore: 88,
+    dealBand: "$120–200/hr contract",
+    signal: "One of the largest pure-play ServiceNow partners, with LATAM delivery centers — Spanish + your timezone are advantages. Knowledge management is a named ServiceNow practice area they sell.",
+    stage: "Lead", buyerName: "", buyerTitle: "KM Practice Lead / Resource Manager",
+    buyerLinkedIn: "", buyerEmail: "", clayEnriched: false, dateAdded: "2026-09-25",
+    nextDate: "2026-09-30", nextAction: "Clay-find their KM / Knowledge practice leadership, ideally LATAM-based. Spanish-language opener.",
+    notes: "LATAM delivery footprint makes you an easy cultural + timezone fit. Now Cognizant-owned = bigger deal flow.",
+    stageHistory: [{stage:"Lead",date:"2026-09-25"}], flagged: false,
+  },
+  // ── AI-ENABLEMENT TRAINING + warm reference ───────────────────────────────
+  {
+    id: "warm-mila", company: "MILA Stories", domain: "",
+    industry: "Storytelling / conversational AI platform", size: "1–50", location: "Remote",
+    source: "Referral", service: "ai-training", icpScore: 84,
+    dealBand: "$8k–30k per cohort · repeat consulting",
+    signal: "PAST CLIENT (Nov–Dec 2025): you designed their conversational IA and lifted engagement up to 70% / cut errors 90%. A happy past client is your best source of repeat work AND referrals. Ask for both.",
+    stage: "Nurture", buyerName: "", buyerTitle: "Founder / Product Lead",
+    buyerLinkedIn: "", buyerEmail: "", clayEnriched: false, dateAdded: "2026-09-25",
+    nextDate: "2026-09-29", nextAction: "Warm check-in: how are the flows performing since your work? Offer a follow-on + ask who else in their network needs the same. Add domain when you have it.",
+    notes: "Reference + repeat + referral, all in one. Get a testimonial while the 70%/90% results are fresh — it powers every other pitch.",
+    stageHistory: [{stage:"Nurture",date:"2026-09-25"}], flagged: true,
   },
 ];
 
